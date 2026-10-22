@@ -1,4 +1,5 @@
-# 🛡️ Agii AI Modernizer: Legacy Discovery & Audit Workbench (PoC)![Workbench Preview](./dashboard_preview.png)
+# 🛡️ Agii AI Modernizer: Legacy Discovery & Audit Workbench (PoC)
+![Workbench Preview](./dashboard_preview.png)
 
 An AI-powered pre-migration discovery engine designed to de-risk enterprise legacy modernizations. The platform ingests legacy COBOL code, indexes source lines for absolute auditability, and uses structured schema extraction to output verifiable business rules and migration risk registers.
 
