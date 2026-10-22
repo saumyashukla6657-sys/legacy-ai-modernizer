@@ -1,0 +1,22 @@
+IDENTIFICATION DIVISION.
+       PROGRAM-ID. INTCALC.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-BALANCE          PIC 9(7)V99 VALUE 0015000.00.
+       01  WS-ACCOUNT-TYPE     PIC X(04)   VALUE "SAVG".
+       01  WS-TIER-RATE        PIC 9V9999.
+       01  WS-ANNUAL-INT       PIC 9(7)V99.
+       PROCEDURE DIVISION.
+       0000-PROCESS-INT.
+           IF WS-ACCOUNT-TYPE = "SAVG"
+               IF WS-BALANCE > 10000.00
+                   MOVE 0.0425 TO WS-TIER-RATE
+               ELSE
+                   MOVE 0.0150 TO WS-TIER-RATE
+               END-IF
+           ELSE
+               MOVE 0.0050 TO WS-TIER-RATE
+           END-IF.
+           COMPUTE WS-ANNUAL-INT = WS-BALANCE * WS-TIER-RATE.
+           DISPLAY "CALCULATED INTEREST: " WS-ANNUAL-INT.
+           STOP RUN.

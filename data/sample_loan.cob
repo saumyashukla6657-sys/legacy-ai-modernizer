@@ -1,0 +1,22 @@
+IDENTIFICATION DIVISION.
+       PROGRAM-ID. LOANPROC.
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01  WS-CREDIT-SCORE     PIC 9(3) VALUE 680.
+       01  WS-ANNUAL-INCOME    PIC 9(6) VALUE 050000.
+       01  WS-LOAN-AMOUNT      PIC 9(6) VALUE 015000.
+       01  WS-DECISION         PIC X(10).
+       01  WS-INTEREST-RATE    PIC 9V99 VALUE 0.05.
+       PROCEDURE DIVISION.
+       0000-MAIN.
+           IF WS-CREDIT-SCORE < 600
+               MOVE "REJECTED" TO WS-DECISION
+           ELSE
+               IF WS-ANNUAL-INCOME > 45000
+                   MOVE "APPROVED" TO WS-DECISION
+               ELSE
+                   MOVE "MANUAL-REV" TO WS-DECISION
+               END-IF
+           END-IF.
+           DISPLAY "FINAL LOAN DECISION: " WS-DECISION.
+           STOP RUN.
